@@ -3,7 +3,7 @@
     <div class="alert alert-danger">
       <%= alert %>
       <ul>
-        <% message.errors.full_messages.each do |full_message| %>
+        <% @message.errors.full_messages.each do |full_message| %>
             <li>
               <%= full_message %>
             </li>
@@ -11,12 +11,12 @@
        </ul>
       </div>
   <% end %>
-  
+
            名前:
-           <input type="text"class="form-control" placeholder="name"<%= f.text_field :name %>
-            <br>
-            内容:
-           <textarea class="form-control" rows="3"placeholder="message"<%= f.text_field :body %></textarea>
+           <%= f.text_field :name, placeholder: 'name',class: 'form-control' %>
+           <br>
+           内容:
+           <%= f.text_area :body, placeholder: 'messageを入力してください',class: 'form-control', rows: '3' %>
            <br>
            <%= f.submit class: "btn btn-sm btn-primary" %>
  <% end %>
